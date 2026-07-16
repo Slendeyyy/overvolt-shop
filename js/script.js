@@ -1263,7 +1263,7 @@ if (fadeElements.length > 0) {
 // 19. PC COMPONENT COMPARATOR PLUGIN INITIALIZATION
 if (window.ComponentComparator) {
   ComponentComparator.init({
-    apiUrl: 'http://localhost:3000',
+    apiUrl: 'https://overvolt-compatibility-engine.onrender.com',
     mountSelector: '#comparator-root'
   });
 }

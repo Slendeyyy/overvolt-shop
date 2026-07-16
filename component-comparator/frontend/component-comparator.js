@@ -4,7 +4,7 @@
  */
 
 (function () {
-  let apiUrl = "http://localhost:3000";
+  let apiUrl = "https://overvolt-compatibility-engine.onrender.com";
   let mountEl = null;
   let selectedIds = [];
   let allComponentsCache = null;

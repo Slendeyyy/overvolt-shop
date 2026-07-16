@@ -49,6 +49,19 @@ def add_cors_headers(response):
     return response
 
 # Routes
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "name": "PC Component Compatibility Engine API",
+        "version": "1.0.0",
+        "status": "online",
+        "endpoints": {
+            "GET /api/components": "List all components",
+            "GET /api/components/<id>": "Get details of a single component",
+            "POST /api/compatibility/check": "Check compatibility of a selection of components"
+        }
+    })
+
 @app.route("/api/components", methods=["GET"])
 def get_components():
     category = request.args.get("category")
