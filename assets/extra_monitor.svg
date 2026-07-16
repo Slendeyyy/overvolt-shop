@@ -1,0 +1,12 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- UltraWide Curved Monitor -->
+  <!-- Screen frame curve -->
+  <path d="M 15 50 C 60 42, 140 42, 185 50 L 185 120 C 140 128, 60 128, 15 120 Z" fill="#131020" stroke="#2a2440" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Glowing bezel inner -->
+  <path d="M 20 54 C 62 47, 138 47, 180 54 L 180 116 C 138 123, 62 123, 20 116 Z" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Glowing lines on display -->
+  <path d="M 40 70 L 160 70 M 60 90 L 140 90" stroke="#ff2e7e" stroke-width="1" opacity="0.3"/>
+  <!-- Monitor Stand -->
+  <path d="M 100 125 L 85 165 H 115 Z" fill="#181425" stroke="#2a2440" stroke-width="2"/>
+  <path d="M 70 170 H 130" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+</svg>

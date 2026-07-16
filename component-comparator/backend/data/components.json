@@ -1,0 +1,1224 @@
+[
+  {
+    "id": "cpu-ryzen-7800x3d",
+    "name": "AMD Ryzen 7 7800X3D",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 469999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 120,
+    "generation": "Zen 4"
+  },
+  {
+    "id": "cpu-ryzen-7600x",
+    "name": "AMD Ryzen 5 7600X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 289999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 105,
+    "generation": "Zen 4"
+  },
+  {
+    "id": "cpu-ryzen-7950x",
+    "name": "AMD Ryzen 9 7950X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 689999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 170,
+    "generation": "Zen 4"
+  },
+  {
+    "id": "cpu-ryzen-7600",
+    "name": "AMD Ryzen 5 7600",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 249999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 65,
+    "generation": "Zen 4"
+  },
+  {
+    "id": "cpu-ryzen-9900x",
+    "name": "AMD Ryzen 9 9900X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 549999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 120,
+    "generation": "Zen 5"
+  },
+  {
+    "id": "cpu-ryzen-9700x",
+    "name": "AMD Ryzen 7 9700X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 419999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM5",
+    "tdp": 65,
+    "generation": "Zen 5"
+  },
+  {
+    "id": "cpu-intel-14900k",
+    "name": "Intel Core i9-14900K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 729999,
+    "img": "assets/flash_cpu.png",
+    "socket": "LGA1700",
+    "tdp": 125,
+    "generation": "14th Gen"
+  },
+  {
+    "id": "cpu-intel-14700k",
+    "name": "Intel Core i7-14700K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 519999,
+    "img": "assets/flash_cpu.png",
+    "socket": "LGA1700",
+    "tdp": 125,
+    "generation": "14th Gen"
+  },
+  {
+    "id": "cpu-intel-14600k",
+    "name": "Intel Core i5-14600K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 389999,
+    "img": "assets/flash_cpu.png",
+    "socket": "LGA1700",
+    "tdp": 125,
+    "generation": "14th Gen"
+  },
+  {
+    "id": "cpu-intel-13400f",
+    "name": "Intel Core i5-13400F",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 249999,
+    "img": "assets/flash_cpu.png",
+    "socket": "LGA1700",
+    "tdp": 65,
+    "generation": "13th Gen"
+  },
+  {
+    "id": "cpu-intel-12100f",
+    "name": "Intel Core i3-12100F",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 109999,
+    "img": "assets/flash_cpu.png",
+    "socket": "LGA1700",
+    "tdp": 58,
+    "generation": "12th Gen"
+  },
+  {
+    "id": "cpu-ryzen-5800x3d",
+    "name": "AMD Ryzen 7 5800X3D",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 399999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM4",
+    "tdp": 105,
+    "generation": "Zen 3"
+  },
+  {
+    "id": "cpu-ryzen-5700x",
+    "name": "AMD Ryzen 7 5700X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 229999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM4",
+    "tdp": 65,
+    "generation": "Zen 3"
+  },
+  {
+    "id": "cpu-ryzen-5600x",
+    "name": "AMD Ryzen 5 5600X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 179999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM4",
+    "tdp": 65,
+    "generation": "Zen 3"
+  },
+  {
+    "id": "cpu-ryzen-3600",
+    "name": "AMD Ryzen 5 3600",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 99999,
+    "img": "assets/flash_cpu.png",
+    "socket": "AM4",
+    "tdp": 65,
+    "generation": "Zen 2"
+  },
+  {
+    "id": "motherboard-asus-b650a",
+    "name": "ASUS ROG STRIX B650-A GAMING WIFI",
+    "brand": "ASUS",
+    "category": "motherboard",
+    "price": 289999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM5",
+    "chipset": "B650",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6400,
+    "formFactor": "ATX",
+    "m2Slots": 3,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-gb-x670",
+    "name": "Gigabyte X670 AORUS ELITE AX",
+    "brand": "Gigabyte",
+    "category": "motherboard",
+    "price": 429999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM5",
+    "chipset": "X670",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6666,
+    "formFactor": "ATX",
+    "m2Slots": 4,
+    "pcieSlots": 3
+  },
+  {
+    "id": "motherboard-msi-b650mp",
+    "name": "MSI PRO B650M-P",
+    "brand": "MSI",
+    "category": "motherboard",
+    "price": 169999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM5",
+    "chipset": "B650",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6000,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 2,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-asrock-b650m",
+    "name": "ASRock B650M Pro RS WiFi",
+    "brand": "ASRock",
+    "category": "motherboard",
+    "price": 199999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM5",
+    "chipset": "B650",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6200,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 3,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-asus-x670e",
+    "name": "ASUS Prime X670E-PRO WIFI",
+    "brand": "ASUS",
+    "category": "motherboard",
+    "price": 499999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM5",
+    "chipset": "X670E",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6400,
+    "formFactor": "ATX",
+    "m2Slots": 4,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-msi-b760",
+    "name": "MSI B760 GAMING PLUS WIFI",
+    "brand": "MSI",
+    "category": "motherboard",
+    "price": 229999,
+    "img": "assets/flash_mobo.png",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "ramType": "DDR5",
+    "maxRamSpeed": 6800,
+    "formFactor": "ATX",
+    "m2Slots": 2,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-msi-z790",
+    "name": "MSI MPG Z790 CARBON WIFI",
+    "brand": "MSI",
+    "category": "motherboard",
+    "price": 549999,
+    "img": "assets/flash_mobo.png",
+    "socket": "LGA1700",
+    "chipset": "Z790",
+    "ramType": "DDR5",
+    "maxRamSpeed": 7600,
+    "formFactor": "ATX",
+    "m2Slots": 5,
+    "pcieSlots": 3
+  },
+  {
+    "id": "motherboard-asus-h610m",
+    "name": "ASUS Prime H610M-E D4",
+    "brand": "ASUS",
+    "category": "motherboard",
+    "price": 94999,
+    "img": "assets/flash_mobo.png",
+    "socket": "LGA1700",
+    "chipset": "H610",
+    "ramType": "DDR4",
+    "maxRamSpeed": 3200,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 2,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-gb-b760m-d4",
+    "name": "Gigabyte B760M DS3H AX DDR4",
+    "brand": "Gigabyte",
+    "category": "motherboard",
+    "price": 149999,
+    "img": "assets/flash_mobo.png",
+    "socket": "LGA1700",
+    "chipset": "B760",
+    "ramType": "DDR4",
+    "maxRamSpeed": 5333,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 2,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-asus-b550m",
+    "name": "ASUS Prime B550M-A AC",
+    "brand": "ASUS",
+    "category": "motherboard",
+    "price": 129999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM4",
+    "chipset": "B550",
+    "ramType": "DDR4",
+    "maxRamSpeed": 4400,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 2,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-asrock-b450m",
+    "name": "ASRock B450M Steel Legend",
+    "brand": "ASRock",
+    "category": "motherboard",
+    "price": 104999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM4",
+    "chipset": "B450",
+    "ramType": "DDR4",
+    "maxRamSpeed": 3533,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 2,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-asus-b550f",
+    "name": "ASUS ROG STRIX B550-F GAMING",
+    "brand": "ASUS",
+    "category": "motherboard",
+    "price": 189999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM4",
+    "chipset": "B550",
+    "ramType": "DDR4",
+    "maxRamSpeed": 4600,
+    "formFactor": "ATX",
+    "m2Slots": 2,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-msi-b550t",
+    "name": "MSI MAG B550 TOMAHAWK",
+    "brand": "MSI",
+    "category": "motherboard",
+    "price": 204999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM4",
+    "chipset": "B550",
+    "ramType": "DDR4",
+    "maxRamSpeed": 4866,
+    "formFactor": "ATX",
+    "m2Slots": 2,
+    "pcieSlots": 2
+  },
+  {
+    "id": "motherboard-gb-a520m",
+    "name": "Gigabyte A520M S2H",
+    "brand": "Gigabyte",
+    "category": "motherboard",
+    "price": 79999,
+    "img": "assets/flash_mobo.png",
+    "socket": "AM4",
+    "chipset": "A520",
+    "ramType": "DDR4",
+    "maxRamSpeed": 5100,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 1,
+    "pcieSlots": 1
+  },
+  {
+    "id": "motherboard-msi-h510m",
+    "name": "MSI H510M-A PRO",
+    "brand": "MSI",
+    "category": "motherboard",
+    "price": 84999,
+    "img": "assets/flash_mobo.png",
+    "socket": "LGA1200",
+    "chipset": "H510",
+    "ramType": "DDR4",
+    "maxRamSpeed": 3200,
+    "formFactor": "Micro-ATX",
+    "m2Slots": 1,
+    "pcieSlots": 1
+  },
+  {
+    "id": "ram-corsair-ddr5-32g",
+    "name": "Corsair Vengeance DDR5 32GB (2x16GB) 6000MHz",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 189999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR5",
+    "speed": 6000,
+    "capacity": "32GB"
+  },
+  {
+    "id": "ram-gskill-ddr5-32g",
+    "name": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6400MHz",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 209999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR5",
+    "speed": 6400,
+    "capacity": "32GB"
+  },
+  {
+    "id": "ram-kingston-ddr5-16g",
+    "name": "Kingston FURY Beast DDR5 16GB (2x8GB) 5200MHz",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 109999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR5",
+    "speed": 5200,
+    "capacity": "16GB"
+  },
+  {
+    "id": "ram-crucial-ddr5-8g",
+    "name": "Crucial Classic DDR5 8GB 4800MHz",
+    "brand": "Crucial",
+    "category": "ram",
+    "price": 49999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR5",
+    "speed": 4800,
+    "capacity": "8GB"
+  },
+  {
+    "id": "ram-patriot-ddr5-32g",
+    "name": "Patriot Viper Venom DDR5 32GB (2x16GB) 5600MHz",
+    "brand": "Patriot",
+    "category": "ram",
+    "price": 169999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR5",
+    "speed": 5600,
+    "capacity": "32GB"
+  },
+  {
+    "id": "ram-kingston-ddr4-32g",
+    "name": "Kingston FURY Renegade DDR4 32GB (2x16GB) 3600MHz",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 139999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 3600,
+    "capacity": "32GB"
+  },
+  {
+    "id": "ram-corsair-ddr4-16g",
+    "name": "Corsair Vengeance LPX DDR4 16GB (2x8GB) 3200MHz",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 69999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 3200,
+    "capacity": "16GB"
+  },
+  {
+    "id": "ram-gskill-ddr4-32g",
+    "name": "G.Skill Ripjaws V DDR4 32GB (2x16GB) 3200MHz",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 119999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 3200,
+    "capacity": "32GB"
+  },
+  {
+    "id": "ram-patriot-ddr4-16g",
+    "name": "Patriot Viper Steel DDR4 16GB (2x8GB) 4400MHz",
+    "brand": "Patriot",
+    "category": "ram",
+    "price": 99999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 4400,
+    "capacity": "16GB"
+  },
+  {
+    "id": "ram-crucial-ddr4-8g",
+    "name": "Crucial DDR4 8GB 2666MHz",
+    "brand": "Crucial",
+    "category": "ram",
+    "price": 31999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 2666,
+    "capacity": "8GB"
+  },
+  {
+    "id": "ram-xpg-ddr4-16g",
+    "name": "XPG Spectrix D50 DDR4 16GB (2x8GB) 3600MHz",
+    "brand": "XPG",
+    "category": "ram",
+    "price": 79999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 3600,
+    "capacity": "16GB"
+  },
+  {
+    "id": "ram-teamgroup-ddr4-16g",
+    "name": "Teamgroup T-Force Vulcan Z DDR4 16GB (2x8GB) 3200MHz",
+    "brand": "Teamgroup",
+    "category": "ram",
+    "price": 62999,
+    "img": "assets/flash_ram.svg",
+    "ramType": "DDR4",
+    "speed": 3200,
+    "capacity": "16GB"
+  },
+  {
+    "id": "gpu-asus-rtx-4070tis",
+    "name": "ASUS ROG Strix RTX 4070 Ti SUPER 16GB",
+    "brand": "ASUS",
+    "category": "gpu",
+    "price": 1050000,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 336,
+    "tdp": 285,
+    "powerConnectors": "1x 16-pin 12VHPWR"
+  },
+  {
+    "id": "gpu-msi-rtx-4080s",
+    "name": "MSI Gaming X Slim RTX 4080 SUPER 16GB",
+    "brand": "MSI",
+    "category": "gpu",
+    "price": 1499999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 322,
+    "tdp": 320,
+    "powerConnectors": "1x 16-pin 12VHPWR"
+  },
+  {
+    "id": "gpu-sapphire-rx7800xt",
+    "name": "Sapphire NITRO+ RX 7800 XT 16GB",
+    "brand": "Sapphire",
+    "category": "gpu",
+    "price": 689999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 320,
+    "tdp": 263,
+    "powerConnectors": "2x 8-pin"
+  },
+  {
+    "id": "gpu-powercolor-rx7900xtx",
+    "name": "PowerColor Hellhound RX 7900 XTX 24GB",
+    "brand": "PowerColor",
+    "category": "gpu",
+    "price": 1399999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 320,
+    "tdp": 355,
+    "powerConnectors": "2x 8-pin"
+  },
+  {
+    "id": "gpu-msi-rtx-4060ti",
+    "name": "MSI Ventus 3X RTX 4060 Ti 8GB",
+    "brand": "MSI",
+    "category": "gpu",
+    "price": 549999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 308,
+    "tdp": 160,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-asus-rx7600xt",
+    "name": "ASUS DUAL RX 7600 XT 16GB",
+    "brand": "ASUS",
+    "category": "gpu",
+    "price": 489999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 227,
+    "tdp": 190,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-zotac-rtx-3060",
+    "name": "Zotac Twin Edge RTX 3060 12GB",
+    "brand": "Zotac",
+    "category": "gpu",
+    "price": 319999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 224,
+    "tdp": 170,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-evga-gtx-1660s",
+    "name": "EVGA SC Ultra GTX 1660 Super 6GB",
+    "brand": "EVGA",
+    "category": "gpu",
+    "price": 199999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 202,
+    "tdp": 125,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-gb-rtx-4060",
+    "name": "Gigabyte Windforce RTX 4060 8GB",
+    "brand": "Gigabyte",
+    "category": "gpu",
+    "price": 399999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 198,
+    "tdp": 115,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-asus-rtx-4090",
+    "name": "ASUS ROG Strix RTX 4090 24GB",
+    "brand": "ASUS",
+    "category": "gpu",
+    "price": 2499999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 357,
+    "tdp": 450,
+    "powerConnectors": "1x 16-pin 12VHPWR"
+  },
+  {
+    "id": "gpu-sapphire-rx6600",
+    "name": "Sapphire Pulse RX 6600 8GB",
+    "brand": "Sapphire",
+    "category": "gpu",
+    "price": 269999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 193,
+    "tdp": 140,
+    "powerConnectors": "1x 8-pin"
+  },
+  {
+    "id": "gpu-gb-rtx-4070ti",
+    "name": "Gigabyte AORUS Master RTX 4070 Ti",
+    "brand": "Gigabyte",
+    "category": "gpu",
+    "price": 999999,
+    "img": "assets/flash_gpu.png",
+    "lengthMm": 342,
+    "tdp": 285,
+    "powerConnectors": "1x 16-pin 12VHPWR"
+  },
+  {
+    "id": "psu-seasonic-focus-1000",
+    "name": "Seasonic FOCUS GX-1000 1000W",
+    "brand": "Seasonic",
+    "category": "psu",
+    "price": 239999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 1000,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-gb-p850gm",
+    "name": "Gigabyte GP-P850GM 850W",
+    "brand": "Gigabyte",
+    "category": "psu",
+    "price": 179999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 850,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-tt-gf1-850",
+    "name": "Thermaltake Toughpower GF1 850W",
+    "brand": "Thermaltake",
+    "category": "psu",
+    "price": 184999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 850,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-corsair-rm750e",
+    "name": "Corsair RM750e 750W",
+    "brand": "Corsair",
+    "category": "psu",
+    "price": 159999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 750,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-bequiet-pp12m-750",
+    "name": "be quiet! Pure Power 12 M 750W",
+    "brand": "be quiet!",
+    "category": "psu",
+    "price": 164999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 750,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-cm-mwe-650",
+    "name": "Cooler Master MWE Bronze 650W",
+    "brand": "Cooler Master",
+    "category": "psu",
+    "price": 89999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 650,
+    "certification": "80 Plus Bronze"
+  },
+  {
+    "id": "psu-evga-600w1",
+    "name": "EVGA 600 W1 600W",
+    "brand": "EVGA",
+    "category": "psu",
+    "price": 79999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 600,
+    "certification": "80 Plus White"
+  },
+  {
+    "id": "psu-corsair-cv550",
+    "name": "Corsair CV550 550W",
+    "brand": "Corsair",
+    "category": "psu",
+    "price": 69999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 550,
+    "certification": "80 Plus Bronze"
+  },
+  {
+    "id": "psu-asus-thor-1200",
+    "name": "ASUS ROG Thor 1200W",
+    "brand": "ASUS",
+    "category": "psu",
+    "price": 389999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 1200,
+    "certification": "80 Plus Platinum"
+  },
+  {
+    "id": "psu-seasonic-focus-850",
+    "name": "Seasonic FOCUS GX-850",
+    "brand": "Seasonic",
+    "category": "psu",
+    "price": 199999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 850,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-evga-1300g2",
+    "name": "EVGA SuperNOVA 1300 G2",
+    "brand": "EVGA",
+    "category": "psu",
+    "price": 429999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 1300,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "psu-corsair-rm850x",
+    "name": "Corsair RM850x",
+    "brand": "Corsair",
+    "category": "psu",
+    "price": 194999,
+    "img": "assets/flash_psu.svg",
+    "wattage": 850,
+    "certification": "80 Plus Gold"
+  },
+  {
+    "id": "case-lianli-o11d-evo",
+    "name": "Lian Li O11 Dynamic EVO",
+    "brand": "Lian Li",
+    "category": "case",
+    "price": 229999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 422,
+    "maxCoolerHeightMm": 167
+  },
+  {
+    "id": "case-phanteks-g360a",
+    "name": "Phanteks Eclipse G360A",
+    "brand": "Phanteks",
+    "category": "case",
+    "price": 119999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 400,
+    "maxCoolerHeightMm": 162
+  },
+  {
+    "id": "case-nzxt-h5-flow",
+    "name": "NZXT H5 Flow",
+    "brand": "NZXT",
+    "category": "case",
+    "price": 129999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 365,
+    "maxCoolerHeightMm": 165
+  },
+  {
+    "id": "case-corsair-4000d",
+    "name": "Corsair 4000D Airflow",
+    "brand": "Corsair",
+    "category": "case",
+    "price": 134999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 360,
+    "maxCoolerHeightMm": 170
+  },
+  {
+    "id": "case-asus-ap201",
+    "name": "ASUS Prime AP201 Mesh",
+    "brand": "ASUS",
+    "category": "case",
+    "price": 99999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 338,
+    "maxCoolerHeightMm": 170
+  },
+  {
+    "id": "case-cougar-geminim",
+    "name": "Cougar Gemini M",
+    "brand": "Cougar",
+    "category": "case",
+    "price": 79999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 330,
+    "maxCoolerHeightMm": 150
+  },
+  {
+    "id": "case-tt-versah15",
+    "name": "Thermaltake Versa H15",
+    "brand": "Thermaltake",
+    "category": "case",
+    "price": 54999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 315,
+    "maxCoolerHeightMm": 155
+  },
+  {
+    "id": "case-msi-m301",
+    "name": "MSI MAG Shield M301",
+    "brand": "MSI",
+    "category": "case",
+    "price": 44999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 250,
+    "maxCoolerHeightMm": 140
+  },
+  {
+    "id": "case-hyte-y60",
+    "name": "Hyte Y60 Panoramic",
+    "brand": "Hyte",
+    "category": "case",
+    "price": 289999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 375,
+    "maxCoolerHeightMm": 160
+  },
+  {
+    "id": "case-fractal-north",
+    "name": "Fractal Design North",
+    "brand": "Fractal",
+    "category": "case",
+    "price": 219999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 355,
+    "maxCoolerHeightMm": 170
+  },
+  {
+    "id": "case-corsair-5000d",
+    "name": "Corsair 5000D RGB",
+    "brand": "Corsair",
+    "category": "case",
+    "price": 209999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "ATX",
+      "Micro-ATX",
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 400,
+    "maxCoolerHeightMm": 170
+  },
+  {
+    "id": "case-tt-corev1",
+    "name": "Thermaltake Core V1",
+    "brand": "Thermaltake",
+    "category": "case",
+    "price": 49999,
+    "img": "assets/flash_case.svg",
+    "formFactors": [
+      "Mini-ITX"
+    ],
+    "maxGpuLengthMm": 285,
+    "maxCoolerHeightMm": 140
+  },
+  {
+    "id": "cooler-noctua-d15",
+    "name": "Noctua NH-D15 premium cooler",
+    "brand": "Noctua",
+    "category": "cooler",
+    "price": 149999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 165
+  },
+  {
+    "id": "cooler-bequiet-drp4",
+    "name": "be quiet! Dark Rock Pro 4",
+    "brand": "be quiet!",
+    "category": "cooler",
+    "price": 129999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 163
+  },
+  {
+    "id": "cooler-tr-peerless",
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "brand": "Thermalright",
+    "category": "cooler",
+    "price": 64999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 155
+  },
+  {
+    "id": "cooler-deepcool-ak400",
+    "name": "DeepCool AK400 Performance",
+    "brand": "DeepCool",
+    "category": "cooler",
+    "price": 38999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 155
+  },
+  {
+    "id": "cooler-cm-hyper212",
+    "name": "Cooler Master Hyper 212 Halo RGB",
+    "brand": "Cooler Master",
+    "category": "cooler",
+    "price": 42999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 154
+  },
+  {
+    "id": "cooler-noctua-l9i",
+    "name": "Noctua NH-L9i Low Profile",
+    "brand": "Noctua",
+    "category": "cooler",
+    "price": 79999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "LGA1700"
+    ],
+    "heightMm": 37
+  },
+  {
+    "id": "cooler-corsair-h150i",
+    "name": "Corsair iCUE H150i AIO 360mm",
+    "brand": "Corsair",
+    "category": "cooler",
+    "price": 269999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 80
+  },
+  {
+    "id": "cooler-asus-ryujin",
+    "name": "ASUS ROG RYUJIN III 360 AIO",
+    "brand": "ASUS",
+    "category": "cooler",
+    "price": 399999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 80
+  },
+  {
+    "id": "cooler-deepcool-lt720",
+    "name": "DeepCool LT720 AIO 360mm",
+    "brand": "DeepCool",
+    "category": "cooler",
+    "price": 189999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 80
+  },
+  {
+    "id": "cooler-noctua-u12s",
+    "name": "Noctua NH-U12S Redux",
+    "brand": "Noctua",
+    "category": "cooler",
+    "price": 89999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 158
+  },
+  {
+    "id": "cooler-cm-ml240l",
+    "name": "Cooler Master MasterLiquid ML240L",
+    "brand": "Cooler Master",
+    "category": "cooler",
+    "price": 119999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 80
+  },
+  {
+    "id": "cooler-nzxt-kraken360",
+    "name": "NZXT Kraken Elite 360",
+    "brand": "NZXT",
+    "category": "cooler",
+    "price": 329999,
+    "img": "assets/flash_cooler.svg",
+    "supportedSockets": [
+      "AM4",
+      "AM5",
+      "LGA1700"
+    ],
+    "heightMm": 80
+  },
+  {
+    "id": "storage-samsung-990pro",
+    "name": "Samsung 990 PRO NVMe M.2 2TB",
+    "brand": "Samsung",
+    "category": "storage",
+    "price": 289999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-crucial-p3p",
+    "name": "Crucial P3 Plus M.2 NVMe 2TB",
+    "brand": "Crucial",
+    "category": "storage",
+    "price": 189999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-wd-sn580",
+    "name": "Western Digital Blue SN580 1TB",
+    "brand": "Western Digital",
+    "category": "storage",
+    "price": 99999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-kingston-nv2",
+    "name": "Kingston NV2 M.2 NVMe 1TB",
+    "brand": "Kingston",
+    "category": "storage",
+    "price": 89999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-crucial-mx500",
+    "name": "Crucial MX500 SATA 2.5\" 1TB",
+    "brand": "Crucial",
+    "category": "storage",
+    "price": 94999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "SATA"
+  },
+  {
+    "id": "storage-samsung-870evo",
+    "name": "Samsung 870 EVO SATA 2.5\" 1TB",
+    "brand": "Samsung",
+    "category": "storage",
+    "price": 119999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "SATA"
+  },
+  {
+    "id": "storage-kingston-a400",
+    "name": "Kingston A400 SATA 2.5\" 480GB",
+    "brand": "Kingston",
+    "category": "storage",
+    "price": 42999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "SATA"
+  },
+  {
+    "id": "storage-wd-green",
+    "name": "Western Digital Green SATA 2.5\" 240GB",
+    "brand": "Western Digital",
+    "category": "storage",
+    "price": 28999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "SATA"
+  },
+  {
+    "id": "storage-wd-sn850x",
+    "name": "WD Black SN850X PCIe 4.0 2TB",
+    "brand": "Western Digital",
+    "category": "storage",
+    "price": 249999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-solidigm-p41",
+    "name": "Solidigm P41 Plus PCIe 4.0 1TB",
+    "brand": "Solidigm",
+    "category": "storage",
+    "price": 92999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-corsair-mp600",
+    "name": "Corsair MP600 PRO XT M.2 2TB",
+    "brand": "Corsair",
+    "category": "storage",
+    "price": 269999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "NVMe"
+  },
+  {
+    "id": "storage-sp-a55",
+    "name": "Silicon Power A55 SATA 2.5\" 512GB",
+    "brand": "Silicon Power",
+    "category": "storage",
+    "price": 38999,
+    "img": "assets/flash_ssd.svg",
+    "interface": "SATA"
+  }
+]

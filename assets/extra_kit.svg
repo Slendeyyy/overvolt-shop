@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Peripherals Kit (Keyboard + Mouse + Headset schematic) -->
+  <!-- Keyboard outline -->
+  <rect x="20" y="90" width="110" height="50" rx="3" fill="#131020" stroke="#2a2440" stroke-width="2"/>
+  <!-- Key rows -->
+  <rect x="28" y="98" width="94" height="6" fill="#181425" stroke="#00f0ff" stroke-width="0.8"/>
+  <rect x="28" y="108" width="94" height="6" fill="#181425" stroke="#ff2e7e" stroke-width="0.8"/>
+  <rect x="28" y="118" width="94" height="6" fill="#181425" stroke="#00f0ff" stroke-width="0.8"/>
+  <rect x="28" y="128" width="94" height="6" fill="#181425" stroke="#c6ff3d" stroke-width="0.8"/>
+  <!-- Mouse outline -->
+  <rect x="145" y="100" width="35" height="55" rx="10" fill="#131020" stroke="#2a2440" stroke-width="2"/>
+  <line x1="162.5" y1="100" x2="162.5" y2="120" stroke="#00f0ff" stroke-width="1.2"/>
+  <!-- Headset outline floating above -->
+  <path d="M 50 60 C 50 25, 120 25, 120 60" stroke="#2a2440" stroke-width="6" fill="none"/>
+  <path d="M 50 60 C 50 25, 120 25, 120 60" stroke="#ff2e7e" stroke-width="2" fill="none"/>
+  <!-- Ear cups -->
+  <rect x="42" y="50" width="16" height="24" rx="4" fill="#181425" stroke="#00f0ff" stroke-width="1.5"/>
+  <rect x="112" y="50" width="16" height="24" rx="4" fill="#181425" stroke="#00f0ff" stroke-width="1.5"/>
+</svg>

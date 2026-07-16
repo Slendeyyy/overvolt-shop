@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Combo Upgrade (CPU + RAM + MOBO) -->
+  <!-- Motherboard board background -->
+  <rect x="25" y="25" width="150" height="150" rx="6" fill="#131020" stroke="#2a2440" stroke-width="2"/>
+  <!-- CPU Socket glowing -->
+  <rect x="55" y="55" width="50" height="50" rx="3" fill="#181425" stroke="#00f0ff" stroke-width="1.5"/>
+  <!-- RAM Memory modules on side -->
+  <rect x="120" y="45" width="6" height="70" rx="1" fill="#181425" stroke="#ff2e7e" stroke-width="1"/>
+  <rect x="130" y="45" width="6" height="70" rx="1" fill="#181425" stroke="#ff2e7e" stroke-width="1"/>
+  <!-- PCIe slots -->
+  <rect x="55" y="125" width="90" height="8" rx="1" fill="#181425" stroke="#c6ff3d" stroke-width="1"/>
+  <!-- Glowing wires -->
+  <path d="M 110 80 L 120 80" stroke="#00f0ff" stroke-width="1"/>
+  <path d="M 55 80 L 45 80 M 80 55 L 80 45" stroke="#2a2440" stroke-width="1"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- NVMe SSD -->
+  <g transform="translate(45, 10) rotate(45)">
+    <!-- PCB -->
+    <rect x="0" y="0" width="55" height="140" rx="3" fill="#131020" stroke="#2a2440" stroke-width="2"/>
+    <!-- Connector pins -->
+    <rect x="10" y="-4" width="35" height="4" fill="#ffd700"/>
+    <!-- Controller Chip -->
+    <rect x="12" y="15" width="30" height="30" fill="#181425" stroke="#00f0ff" stroke-width="1.5"/>
+    <rect x="19" y="22" width="16" height="16" fill="none" stroke="#ff2e7e" stroke-width="1"/>
+    <!-- NAND Flash Chips -->
+    <rect x="10" y="55" width="35" height="25" fill="#181425" stroke="#2a2440"/>
+    <rect x="10" y="90" width="35" height="25" fill="#181425" stroke="#2a2440"/>
+    <!-- Circuit lines -->
+    <path d="M 27 45 L 27 55" stroke="#00f0ff" stroke-width="1"/>
+    <path d="M 17 45 L 17 55" stroke="#ff2e7e" stroke-width="1"/>
+    <path d="M 37 45 L 37 55" stroke="#ff2e7e" stroke-width="1"/>
+  </g>
+</svg>

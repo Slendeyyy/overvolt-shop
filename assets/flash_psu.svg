@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Power Supply Unit -->
+  <!-- Box -->
+  <rect x="30" y="30" width="140" height="140" rx="10" fill="#131020" stroke="#2a2440" stroke-width="3"/>
+  <!-- Fan Grille -->
+  <circle cx="100" cy="100" r="55" stroke="#2a2440" stroke-width="3" fill="#181425"/>
+  <circle cx="100" cy="100" r="45" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="8 6"/>
+  <circle cx="100" cy="100" r="30" stroke="#ff2e7e" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="100" cy="100" r="15" fill="#00f0ff" opacity="0.3"/>
+  <!-- Fan Blades (radial lines) -->
+  <line x1="100" y1="45" x2="100" y2="155" stroke="#2a2440" stroke-width="2"/>
+  <line x1="45" y1="100" x2="155" y2="100" stroke="#2a2440" stroke-width="2"/>
+  <line x1="61" y1="61" x2="139" y2="139" stroke="#2a2440" stroke-width="2"/>
+  <line x1="139" y1="61" x2="61" y2="139" stroke="#2a2440" stroke-width="2"/>
+  <!-- Corner Screws -->
+  <circle cx="45" cy="45" r="4" fill="#6b6690"/>
+  <circle cx="155" cy="45" r="4" fill="#6b6690"/>
+  <circle cx="45" cy="155" r="4" fill="#6b6690"/>
+  <circle cx="155" cy="155" r="4" fill="#6b6690"/>
+</svg>
