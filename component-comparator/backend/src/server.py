@@ -1,7 +1,12 @@
 from flask import Flask, request, jsonify, abort
 import json
 import os
+import sys
 import time
+
+# Add current folder to sys.path to resolve rules import in production
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from rules import check_all_compatibility
 
 app = Flask(__name__)
