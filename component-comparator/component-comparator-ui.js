@@ -1,17 +1,16 @@
 /**
- * PC Component Comparator Plugin - Frontend Logic
- * Reusable, Vanilla JS, Cyberpunk Theme, Keyboard Accessible
+ * PC Component Comparator - UI Layer
+ * Portable client-side UI plugin. Depends on compatibility-engine.js.
  */
-
 (function () {
-  let apiUrl = "https://overvolt-compatibility-engine.onrender.com";
   let mountEl = null;
   let selectedIds = [];
   let allComponentsCache = null;
   let isModalOpen = false;
+  let catalogSource = null;
 
-  // Session storage sync key
-  const STORAGE_KEY = "overvolt_compare_selection";
+  // Local storage selection sync key
+  const STORAGE_KEY = "cc_selection";
 
   // Elements references
   let floatingBarEl = null;
@@ -41,24 +40,36 @@
     }, 3500);
   }
 
-  // Fetch all components to cache specs
-  async function fetchComponentsOnce() {
+  // Load catalog source and return array
+  async function loadCatalog() {
     if (allComponentsCache) return allComponentsCache;
-    try {
-      const res = await fetch(`${apiUrl}/api/components`);
-      if (!res.ok) throw new Error("Error cargando catálogo.");
-      allComponentsCache = await res.json();
+
+    if (Array.isArray(catalogSource)) {
+      allComponentsCache = catalogSource;
       return allComponentsCache;
-    } catch (err) {
-      console.error("[Comparator Plugin] Error fetching catalog:", err);
-      return [];
     }
+
+    if (typeof catalogSource === "string") {
+      try {
+        const res = await fetch(catalogSource);
+        if (!res.ok) throw new Error("Error loading catalog file.");
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("Catalog format invalid (must be an array).");
+        allComponentsCache = data;
+        return allComponentsCache;
+      } catch (err) {
+        console.error("[ComponentComparator] Failed to load catalog from:", catalogSource, err);
+        throw err;
+      }
+    }
+
+    throw new Error("No catalog source configured.");
   }
 
   // Load selection from storage
   function loadSelection() {
     try {
-      const stored = sessionStorage.getItem(STORAGE_KEY);
+      const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         selectedIds = JSON.parse(stored);
       }
@@ -70,7 +81,7 @@
   // Save selection to storage
   function saveSelection() {
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(selectedIds));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedIds));
     } catch (e) {
       // Ignore storage blockages
     }
@@ -164,10 +175,10 @@
       modalEl.setAttribute("aria-modal", "true");
       modalEl.setAttribute("aria-hidden", "true");
       modalEl.tabIndex = -1;
-      
+
       backdropEl = document.createElement("div");
       backdropEl.className = "cc-modal-backdrop";
-      
+
       mountEl.appendChild(backdropEl);
       mountEl.appendChild(modalEl);
 
@@ -240,21 +251,20 @@
 
     document.getElementById("ccModalCloseBtn").addEventListener("click", () => ComponentComparator.close());
 
-    const items = selectedIds
-      .map(id => catalog.find(c => c.id === id))
-      .filter(Boolean);
+    // Artificial minimal loading delay for aesthetic consistency
+    await new Promise(resolve => setTimeout(resolve, 400));
 
     try {
-      // Call compatibility engine endpoint
-      const response = await fetch(`${apiUrl}/api/compatibility/check`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ids: selectedIds })
-      });
+      if (typeof CompatibilityEngine === "undefined") {
+        throw new Error("CompatibilityEngine module not loaded on page.");
+      }
 
-      if (!response.ok) throw new Error("El servidor de compatibilidad no respondió.");
+      const items = selectedIds
+        .map(id => catalog.find(c => c.id === id))
+        .filter(Boolean);
 
-      const result = await response.json();
+      // Perform calculations entirely in client
+      const result = CompatibilityEngine.checkAllCompatibility(items);
 
       // Build Comparison Table specs fields based on components categories
       const categoriesInSelection = new Set(items.map(i => i.category));
@@ -506,8 +516,8 @@
         </div>
         <div class="cc-modal-body">
           <div class="cc-error-container">
-            <p class="cc-error-title">ERROR DE CONEXIÓN AL MOTOR</p>
-            <p class="cc-error-desc">El backend de compatibilidad no está disponible temporalmente. Por favor, asegúrate de que el servidor esté activo.</p>
+            <p class="cc-error-title">ERROR DE CARGA DEL COMPARADOR</p>
+            <p class="cc-error-desc">No se pudieron cargar los datos del catálogo necesarios para el comparador. Por favor, recarga la página.</p>
             <button class="cc-btn-cyber" id="ccRetryBtn"><span>REINTENTAR</span></button>
           </div>
         </div>
@@ -559,8 +569,8 @@
   // PUBLIC API INTERFACE
   window.ComponentComparator = {
     async init(options = {}) {
-      if (options.apiUrl) apiUrl = options.apiUrl;
-      
+      if (options.catalog) catalogSource = options.catalog;
+
       // Override themes if provided (custom css custom properties)
       if (options.theme) {
         const root = document.documentElement;
@@ -594,14 +604,14 @@
       document.addEventListener("click", (e) => {
         const target = e.target.closest("a");
         if (!target) return;
-        
+
         const href = target.getAttribute("href") || "";
         const text = target.innerText.trim().toLowerCase();
-        
+
         if (
-          href === "#build-pc" || 
-          href === "index.html#build-pc" || 
-          text.includes("armá tu pc") || 
+          href === "#build-pc" ||
+          href === "index.html#build-pc" ||
+          text.includes("armá tu pc") ||
           text.includes("armar pc") ||
           text.includes("empezar a armar") ||
           text.includes("empezar a construir")
@@ -684,11 +694,11 @@
       }
 
       // Fetch the catalog in the background to sync UI without blocking other init operations
-      fetchComponentsOnce().then(catalog => {
+      loadCatalog().then(catalog => {
         syncCheckboxes();
         renderFloatingBar(catalog);
       }).catch(err => {
-        console.error("[ComponentComparator] Error in background fetch:", err);
+        console.error("[ComponentComparator] Error in background load:", err);
       });
 
       console.log("[ComponentComparator] Initialized successfully.");
@@ -707,7 +717,7 @@
       saveSelection();
       syncCheckboxes();
 
-      const catalog = await fetchComponentsOnce();
+      const catalog = await loadCatalog();
       renderFloatingBar(catalog);
     },
 
@@ -716,7 +726,7 @@
       saveSelection();
       syncCheckboxes();
 
-      const catalog = await fetchComponentsOnce();
+      const catalog = await loadCatalog();
       renderFloatingBar(catalog);
 
       if (isModalOpen && selectedIds.length === 0) {
@@ -737,7 +747,7 @@
       modalEl.setAttribute("aria-hidden", "false");
 
       // Load content
-      const catalog = await fetchComponentsOnce();
+      const catalog = await loadCatalog();
       await renderModalContent(catalog);
     },
 

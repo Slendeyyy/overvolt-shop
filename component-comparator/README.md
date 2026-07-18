@@ -1,58 +1,72 @@
-# PC Component Compatibility & Comparison Plugin
+# PC Component Compatibility & Comparison Plugin (100% Client-Side)
 
-Este es un plugin independiente, modular y reutilizable para la comparación de componentes de hardware y la validación en tiempo real de su compatibilidad técnica. 
+Este es un plugin independiente, modular y 100% portátil para la comparación de componentes de hardware y la validación en tiempo real de su compatibilidad técnica. 
 
-El plugin consta de un frontend en **Vanilla JS/CSS** y un backend en **Python (Flask)**.
+> [!IMPORTANT]
+> **Este plugin NO requiere backend ni conexión a internet** más allá de cargar la página. Todo el cálculo de compatibilidad ocurre de forma instantánea en el navegador del usuario final.
 
 ---
 
-## 1. Arquitectura de Carpetas
+## 1. Arquitectura de Archivos
+
+Para integrar este plugin en cualquier otro proyecto, solo debés copiar los siguientes archivos:
 
 ```
 /component-comparator/
-  /frontend/
-    component-comparator.js    → Lógica de UI (Vanilla JS, sin dependencias)
-    component-comparator.css   → Estilos customizados con variables CSS (--cc-*)
-  /backend/
-    /data/
-      components.json          → Base de datos con 96 especificaciones reales
-    /src/
-      server.py                → Servidor Flask (CORS, Rate Limit y Caché)
-      rules.py                 → Motor de reglas de compatibilidad
-    /tests/
-      test_rules.py            → Suite de pruebas unitarias
-    requirements.txt           → Dependencias
-  README.md                    → Este archivo de documentación
+  ├── compatibility-engine.js      → Motor de reglas de compatibilidad (lógica pura, sin DOM)
+  ├── component-comparator-ui.js   → Lógica visual, eventos, renderizado y persistencia en LocalStorage
+  ├── component-comparator.css     → Estilos cyberpunk adaptables vía variables CSS (--cc-*)
+  └── catalog.example.json         → Catálogo con datos reales del proyecto
 ```
 
 ---
 
-## 2. API Endpoints (Backend REST API)
+## 2. Guía de Integración
 
-El backend expone tres rutas principales:
+### Paso 1: Importar hojas de estilos y scripts en el HTML
+Cargá el archivo CSS en la cabecera y los scripts en el orden correcto al final de la etiqueta `<head>` o antes del cierre de `<body>`:
 
-### `GET /api/components`
-Retorna el catálogo completo o filtrado por categoría.
-* **Query Params**: `category` (opcional: cpu, motherboard, ram, gpu, psu, case, cooler, storage)
-* **Response (Ejemplo)**:
-```json
-[
-  {
-    "id": "cpu-ryzen-7800x3d",
-    "name": "AMD Ryzen 7 7800X3D",
-    "brand": "AMD",
-    "category": "cpu",
-    "price": 469999,
-    "socket": "AM5",
-    "tdp": 120,
-    "generation": "Zen 4"
-  }
-]
+```html
+<!-- Estilos del plugin -->
+<link rel="stylesheet" href="component-comparator/component-comparator.css" />
+
+<!-- Scripts del comparador (defer recomendados) -->
+<script src="component-comparator/compatibility-engine.js" defer></script>
+<script src="component-comparator/component-comparator-ui.js" defer></script>
 ```
 
-### `GET /api/components/<id>`
-Retorna la ficha técnica de un único componente.
-* **Response (Ejemplo)**:
+### Paso 2: Inicializar el plugin en tu código JS
+Podés pasarle a la API una **ruta relativa a tu archivo JSON local** (fetch estático) o un **array de objetos directo** que ya tengas en memoria:
+
+#### Opción A: Carga mediante fetch local (JSON)
+```javascript
+ComponentComparator.init({
+  catalog: 'component-comparator/catalog.example.json',
+  mountSelector: '#comparator-root' // Opcional, por defecto crea e inyecta un #comparator-root en body
+});
+```
+
+#### Opción B: Carga directa mediante Array en memoria
+```javascript
+const misProductos = [
+  { id: "cpu-1", name: "Ryzen 5 7600", category: "cpu", socket: "AM5", tdp: 65 },
+  // ...
+];
+
+ComponentComparator.init({
+  catalog: misProductos
+});
+```
+
+---
+
+## 3. Especificaciones del Catálogo (catalog.json Schema)
+
+Cada producto del catálogo debe tener un conjunto de propiedades requeridas según su categoría. Si falta un campo requerido para evaluar una regla, el motor marcará esa regla como `"NO EVALUABLE"` en lugar de fallar o romper la aplicación.
+
+### Formato General por Categoría:
+
+#### CPU (`"category": "cpu"`)
 ```json
 {
   "id": "cpu-ryzen-7800x3d",
@@ -60,128 +74,157 @@ Retorna la ficha técnica de un único componente.
   "brand": "AMD",
   "category": "cpu",
   "price": 469999,
+  "img": "assets/flash_cpu.png",
   "socket": "AM5",
   "tdp": 120,
   "generation": "Zen 4"
 }
 ```
 
-### `POST /api/compatibility/check`
-Recibe un listado de IDs seleccionados y retorna el estado de compatibilidad global e individual por regla.
-* **Request Body**:
+#### Motherboard (`"category": "motherboard"`)
 ```json
 {
-  "ids": ["cpu-ryzen-7800x3d", "motherboard-asus-b650a", "ram-corsair-ddr5-32g"]
-}
-```
-* **Response (Ejemplo)**:
-```json
-{
-  "overallStatus": "COMPATIBLE",
-  "rulesEvaluated": [
-    {
-      "ruleName": "CPU ↔ Motherboard (Socket)",
-      "status": "COMPATIBLE",
-      "message": "Socket del procesador y la placa madre coinciden (AM5).",
-      "comparedValues": {
-        "cpuSocket": "AM5",
-        "moboSocket": "AM5"
-      }
-    },
-    {
-      "ruleName": "Motherboard ↔ RAM (Tipo & Velocidad)",
-      "status": "COMPATIBLE",
-      "message": "RAM compatible en tipo (DDR5) y velocidad (6000MHz).",
-      "comparedValues": {
-        "moboRamType": "DDR5",
-        "ramType": "DDR5",
-        "moboMaxSpeed": 6400,
-        "ramSpeed": 6000
-      }
-    }
-  ]
+  "id": "motherboard-asus-b650a",
+  "name": "ASUS ROG Strix B650-A Gaming",
+  "brand": "ASUS",
+  "category": "motherboard",
+  "price": 289999,
+  "img": "assets/flash_mobo.png",
+  "socket": "AM5",
+  "ramType": "DDR5",
+  "maxRamSpeed": 6400,
+  "pcieSlots": 2,
+  "m2Slots": 3,
+  "formFactor": "ATX",
+  "chipset": "B650"
 }
 ```
 
----
-
-## 3. Despliegue del Backend
-
-El backend está desarrollado en Python y puede ser desplegado en plataformas gratuitas o de bajo costo como **Render**, **Railway** o **Fly.io**.
-
-### Requisitos de Despliegue (Render / Railway)
-1. Conecta tu repositorio de GitHub a la plataforma de hosting.
-2. Configura los siguientes parámetros en el panel de control:
-   * **Runtime**: `Python`
-   * **Build Command**: `pip install -r requirements.txt`
-   * **Start Command**: `python src/server.py` o `gunicorn src.server:app` (para entornos de producción reales)
-   * **Environment Variables**:
-     * `PORT`: `3000` (o el puerto asignado automáticamente por el host)
-
----
-
-## 4. Cómo Cargar o Actualizar el Catálogo de Componentes
-
-Para agregar o modificar especificaciones de componentes:
-1. Abre el archivo `/backend/data/components.json`.
-2. Añade un nuevo objeto JSON asegurando los campos obligatorios correspondientes a su categoría (ej. un gabinete debe incluir `formFactors`, `maxGpuLengthMm` y `maxCoolerHeightMm`).
-3. Si estás utilizando un despliegue en un contenedor persistente o serverless, puedes implementar un endpoint de administración (`POST /api/components`) o actualizar el archivo directamente vía git.
-
----
-
-## 5. Integración en un Proyecto Nuevo Desde Cero
-
-### Paso 1: Importar los recursos en el HTML
-Copia los archivos a tu estructura de proyecto y añádelos en la etiqueta `<head>` de tu página web:
-```html
-<link rel="stylesheet" href="path/to/component-comparator.css" />
-<script src="path/to/component-comparator.js" defer></script>
+#### RAM (`"category": "ram"`)
+```json
+{
+  "id": "ram-corsair-ddr5-32g",
+  "name": "Corsair Vengeance DDR5 32GB",
+  "brand": "Corsair",
+  "category": "ram",
+  "price": 149999,
+  "img": "assets/flash_ram.svg",
+  "ramType": "DDR5",
+  "speed": 5600
+}
 ```
 
-### Paso 2: Agregar el contenedor de anclaje (Opcional)
-Define dónde se montarán el modal y la barra flotante. Si no lo especificas, se creará un div `#comparator-root` al final del body automáticamente.
-```html
-<div id="comparator-root"></div>
+#### GPU / Placa de Video (`"category": "gpu"`)
+```json
+{
+  "id": "gpu-rtx-4070-ti",
+  "name": "NVIDIA GeForce RTX 4070 Ti",
+  "brand": "NVIDIA",
+  "category": "gpu",
+  "price": 899999,
+  "img": "assets/flash_gpu.png",
+  "lengthMm": 305,
+  "tdp": 285
+}
 ```
 
-### Paso 3: Añadir Checkboxes en tus Tarjetas de Producto
-Inserta checkboxes cyberpunk angular dentro de tus tarjetas de producto (estáticas o dinámicas) apuntando al ID del componente:
-```html
-<label class="cc-compare-checkbox">
-  <input type="checkbox" class="cc-compare-checkbox-input" data-id="cpu-ryzen-7800x3d" />
-  <span class="cc-compare-checkbox-box"></span>
-  <span class="cc-compare-checkbox-text">COMPARAR</span>
-</label>
+#### Fuente de Poder / PSU (`"category": "psu"`)
+```json
+{
+  "id": "psu-corsair-rm850x",
+  "name": "Corsair RM850x 850W",
+  "brand": "Corsair",
+  "category": "psu",
+  "price": 189999,
+  "img": "assets/flash_psu.svg",
+  "wattage": 850,
+  "certification": "80 Plus Gold"
+}
 ```
 
-### Paso 4: Inicializar el Plugin
-Llama a la función de inicio de JS:
-```javascript
-document.addEventListener("DOMContentLoaded", () => {
-  ComponentComparator.init({
-    apiUrl: "https://mi-backend-comparator.onrender.com", // Tu URL de API
-    mountSelector: "#comparator-root"
-  });
-});
+#### Gabinete / Case (`"category": "case"`)
+```json
+{
+  "id": "case-nzxt-h7-flow",
+  "name": "NZXT H7 Flow Black",
+  "brand": "NZXT",
+  "category": "case",
+  "price": 159999,
+  "img": "assets/flash_case.svg",
+  "maxGpuLengthMm": 400,
+  "maxCoolerHeightMm": 185,
+  "formFactors": ["ATX", "Micro-ATX", "Mini-ITX"]
+}
+```
+
+#### Disipador / Cooler (`"category": "cooler"`)
+```json
+{
+  "id": "cooler-noctua-u12s",
+  "name": "Noctua NH-U12S Chromax.Black",
+  "brand": "Noctua",
+  "category": "cooler",
+  "price": 99999,
+  "img": "assets/flash_cooler.svg",
+  "heightMm": 158,
+  "supportedSockets": ["AM4", "AM5", "LGA1700", "LGA1200"]
+}
+```
+
+#### Almacenamiento SSD M.2 NVMe (`"category": "storage"`)
+```json
+{
+  "id": "storage-samsung-990-pro-2t",
+  "name": "Samsung 990 Pro 2TB NVMe M.2",
+  "brand": "Samsung",
+  "category": "storage",
+  "price": 179999,
+  "img": "assets/flash_ssd.svg",
+  "interface": "NVMe",
+  "type": "M.2 PCIe 4.0"
+}
 ```
 
 ---
 
-## 6. Personalización del Tema (Variables CSS)
+## 4. Personalización del Tema (CSS Custom Properties)
 
-Puedes anular el diseño visual predeterminado del plugin para adaptarlo a cualquier paleta o tipografía sin necesidad de tocar el código de estilos nativo.
+Podés reescribir los colores y fuentes del comparador editando tu archivo CSS o bien pasándolos en el objeto `theme` durante la inicialización (`init`).
 
-Pasa un objeto `theme` en la inicialización o añade overrides en tu archivo CSS principal:
+### Lista completa de variables configurables:
 
+* `--cc-bg-dark`: Color de fondo oscuro principal del modal.
+* `--cc-bg-panel`: Color de fondo para paneles internos de reglas e informes.
+* `--cc-border`: Color de los bordes del modal y tablas.
+* `--cc-line`: Color de las grillas y acentos de diseño.
+* `--cc-primary`: Color primario de acento cyberpunk (ej. cian para COMPATIBLE).
+* `--cc-secondary`: Color secundario de contraste (ej. magenta para INCOMPATIBLE).
+* `--cc-warning`: Color para notificaciones de advertencia (ej. amarillo/lima).
+* `--cc-text`: Color de texto general.
+* `--cc-text-muted`: Color de texto secundario/apagado.
+* `--cc-font-display`: Tipografía para títulos (por defecto "Rajdhani").
+* `--cc-font-sans`: Tipografía de lectura (por defecto "Barlow Semi Condensed").
+* `--cc-font-mono`: Tipografía monoespaciada para datos técnicos (por defecto "JetBrains Mono").
+
+#### Ejemplo de reescritura en JavaScript:
 ```javascript
 ComponentComparator.init({
-  apiUrl: "http://localhost:3000",
+  catalog: 'component-comparator/catalog.example.json',
   theme: {
-    "bg-dark": "#0d0d0d",      // Cambiar fondo oscuro
-    "bg-panel": "#1a1a1a",     // Cambiar fondo del modal
-    "primary": "#ff3300",      // Cambiar color primario a naranja neón
-    "secondary": "#00ff00",    // Cambiar color de alerta a verde
-    "font-display": "'Roboto', sans-serif"
+    primary: '#ff00ff', // Reemplazar cian por rosa de neón
+    fontDisplay: '"Outfit", sans-serif'
   }
 });
 ```
+
+---
+
+## 5. Ejecución de Pruebas Unitarias del Motor
+
+El motor de reglas de compatibilidad técnica (`compatibility-engine.js`) cuenta con pruebas automatizadas que podés correr localmente en tu terminal para validar que no existan errores de código o regresiones:
+
+```bash
+# Ejecutar las pruebas unitarias
+node component-comparator/test-engine.js
+```
+*Si no contás con una instalación local de Node en tu PATH, las pruebas se inyectan y autoevalúan en los flujos de pruebas de integración del navegador.*
