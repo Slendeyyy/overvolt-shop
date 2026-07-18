@@ -40,6 +40,97 @@
     }, 3500);
   }
 
+  // Default embedded catalog fallback for file:// protocol, offline or network issues
+  const DEFAULT_CATALOG = [
+    {
+      "id": "flash-cpu",
+      "name": "AMD Ryzen 7 7800X3D",
+      "brand": "AMD",
+      "category": "cpu",
+      "price": 469999,
+      "img": "assets/flash_cpu.png",
+      "socket": "AM5",
+      "tdp": 120,
+      "generation": "Zen 4"
+    },
+    {
+      "id": "flash-mobo",
+      "name": "Motherboard Voltek B650 Wifi",
+      "brand": "VOLTEK",
+      "category": "motherboard",
+      "price": 199999,
+      "img": "assets/flash_mobo.png",
+      "socket": "AM5",
+      "ramType": "DDR5",
+      "maxRamSpeed": 6400,
+      "pcieSlots": 2,
+      "m2Slots": 3,
+      "formFactor": "ATX",
+      "chipset": "B650"
+    },
+    {
+      "id": "cool-1",
+      "name": "Cooler Líquido 360mm Voltek",
+      "brand": "VOLTEK",
+      "category": "cooler",
+      "price": 164999,
+      "img": "assets/flash_cooler.svg",
+      "heightMm": 155,
+      "supportedSockets": ["AM4", "AM5", "LGA1700"]
+    },
+    {
+      "id": "ram-1",
+      "name": "Memoria RAM DDR5 32GB Kit (2x16GB)",
+      "brand": "NEXCORE",
+      "category": "ram",
+      "price": 189999,
+      "img": "assets/flash_ram.svg",
+      "ramType": "DDR5",
+      "speed": 6000
+    },
+    {
+      "id": "ssd-1",
+      "name": "SSD NVMe M.2 PCIe 4.0 2TB Zenith",
+      "brand": "ZENITH",
+      "category": "storage",
+      "price": 224999,
+      "img": "assets/flash_ssd.svg",
+      "interface": "NVMe",
+      "type": "M.2 PCIe 4.0"
+    },
+    {
+      "id": "psu-1",
+      "name": "Fuente 850W 80 Plus Gold Voltek",
+      "brand": "VOLTEK",
+      "category": "psu",
+      "price": 159999,
+      "img": "assets/flash_psu.svg",
+      "wattage": 850,
+      "certification": "80 Plus Gold"
+    },
+    {
+      "id": "case-1",
+      "name": "Gabinete ATX Mesh RGB Nexcore",
+      "brand": "NEXCORE",
+      "category": "case",
+      "price": 134999,
+      "img": "assets/flash_case.svg",
+      "maxGpuLengthMm": 400,
+      "maxCoolerHeightMm": 185,
+      "formFactors": ["ATX", "Micro-ATX", "Mini-ITX"]
+    },
+    {
+      "id": "flash-gpu",
+      "name": "Placa de Video Zenith RTX 4070 Ti 12GB",
+      "brand": "ZENITH",
+      "category": "gpu",
+      "price": 789999,
+      "img": "assets/flash_gpu.png",
+      "lengthMm": 305,
+      "tdp": 285
+    }
+  ];
+
   // Load catalog source and return array
   async function loadCatalog() {
     if (allComponentsCache) return allComponentsCache;
@@ -58,12 +149,14 @@
         allComponentsCache = data;
         return allComponentsCache;
       } catch (err) {
-        console.error("[ComponentComparator] Failed to load catalog from:", catalogSource, err);
-        throw err;
+        console.warn("[ComponentComparator] Failed to load catalog from fetch, falling back to embedded catalog:", err);
+        allComponentsCache = DEFAULT_CATALOG;
+        return allComponentsCache;
       }
     }
 
-    throw new Error("No catalog source configured.");
+    allComponentsCache = DEFAULT_CATALOG;
+    return allComponentsCache;
   }
 
   // Load selection from storage
@@ -746,9 +839,29 @@
       modalEl.classList.add("visible");
       modalEl.setAttribute("aria-hidden", "false");
 
-      // Load content
-      const catalog = await loadCatalog();
-      await renderModalContent(catalog);
+      try {
+        // Load content
+        const catalog = await loadCatalog();
+        await renderModalContent(catalog);
+      } catch (err) {
+        console.error("[ComponentComparator] Error opening modal:", err);
+        modalEl.innerHTML = `
+          <div class="cc-modal-header">
+            <h2 class="cc-glow-text" style="color:var(--cc-secondary);">SISTEMA ERROR</h2>
+            <button class="cc-modal-close" id="ccModalCloseBtn" aria-label="Cerrar modal">&times;</button>
+          </div>
+          <div class="cc-modal-body" style="text-align:center; padding:40px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+            <p style="color:var(--cc-secondary); font-family:var(--cc-font-display); font-weight:800; font-size:18px; margin:0;">ERROR AL CARGAR EL COMPARADOR</p>
+            <p style="color:var(--cc-text-muted); font-size:14px; margin:0; line-height:1.5;">No se pudieron cargar los datos del catálogo. Por favor, asegúrate de abrir la página a través de un servidor local o recargar la página.</p>
+            <button class="cc-btn-cyber" id="ccRetryBtn"><span>REINTENTAR</span></button>
+          </div>
+        `;
+        document.getElementById("ccModalCloseBtn").addEventListener("click", () => this.close());
+        document.getElementById("ccRetryBtn").addEventListener("click", () => {
+          isModalOpen = false;
+          this.open();
+        });
+      }
     },
 
     close() {
