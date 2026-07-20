@@ -11,9 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800&family=Barlow+Semi+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pc-builder.css" />
   <link rel="stylesheet" href="component-comparator/component-comparator.css" />
   <script src="component-comparator/compatibility-engine.js" defer></script>
   <script src="component-comparator/component-comparator-ui.js" defer></script>
+  <script src="js/pc-builder.js" defer></script>
 </head>
 <body>
 
@@ -1013,68 +1015,10 @@
 
 
     <!-- ============================================================
-         ARMÁ TU PC (Mejorado)
+         ARMÁ TU PC (Configurador Inteligente Paso a Paso)
     ============================================================ -->
     <section class="build-pc-section" id="build-pc">
-      <div class="container">
-        <div class="build-pc-grid">
-          <div class="build-pc-info">
-            <p class="eyebrow">Configurador Inteligente</p>
-            <h2>Armá tu PC gamer a tu medida, sin complicaciones</h2>
-            <p>Seleccioná componente por componente con la garantía de que son compatibles entre sí. Nuestro sistema valida la compatibilidad eléctrica y física en tiempo real.</p>
-            
-            <ul class="build-features">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Compatibilidad de hardware verificada al 100%</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Armado y testeo de estabilidad de 24 hs gratis</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01l-3-3" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Garantía integral en todo el equipo armado</span>
-              </li>
-            </ul>
-            
-            <a href="#build-pc" class="btn btn-cyan">Empezar a Armar</a>
-          </div>
-          <div class="build-pc-visual" aria-hidden="true">
-            <div class="blueprint-container">
-              <!-- Inline SVG Blueprint Motherboard/PC schematic -->
-              <svg class="blueprint-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Outer borders -->
-                <rect x="10" y="10" width="280" height="280" rx="15" stroke="var(--line)" stroke-width="2" />
-                <rect x="25" y="25" width="250" height="250" rx="8" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" />
-                <!-- CPU socket -->
-                <rect x="105" y="60" width="90" height="90" rx="4" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="3 3" />
-                <rect x="120" y="75" width="60" height="60" rx="2" stroke="var(--lime)" stroke-width="1" />
-                <circle cx="150" cy="105" r="10" stroke="var(--cyan)" stroke-width="1" />
-                <!-- RAM slots -->
-                <rect x="215" y="55" width="8" height="100" rx="2" stroke="var(--cyan)" stroke-width="1.5" />
-                <rect x="227" y="55" width="8" height="100" rx="2" stroke="var(--cyan)" stroke-width="1.5" />
-                <rect x="239" y="55" width="8" height="100" rx="2" stroke="var(--cyan)" stroke-width="1.5" />
-                <rect x="251" y="55" width="8" height="100" rx="2" stroke="var(--cyan)" stroke-width="1.5" />
-                <!-- PCIe slots -->
-                <rect x="45" y="180" width="210" height="16" rx="2" stroke="var(--magenta)" stroke-width="2" />
-                <rect x="45" y="215" width="210" height="12" rx="2" stroke="var(--line)" stroke-width="1.5" />
-                <rect x="45" y="245" width="210" height="12" rx="2" stroke="var(--line)" stroke-width="1.5" />
-                <!-- Capacitors & Heat sinks -->
-                <rect x="45" y="55" width="45" height="100" rx="3" stroke="var(--line)" stroke-width="1.5" fill="rgba(42, 36, 64, 0.2)" />
-                <circle cx="120" cy="23" r="5" stroke="var(--line)" stroke-width="1" />
-                <circle cx="140" cy="23" r="5" stroke="var(--line)" stroke-width="1" />
-                <circle cx="160" cy="23" r="5" stroke="var(--line)" stroke-width="1" />
-                <!-- Glowing corner markers -->
-                <path d="M10 30L30 10" stroke="var(--cyan)" stroke-width="3" />
-                <path d="M290 30L270 10" stroke="var(--cyan)" stroke-width="3" />
-                <path d="M10 270L30 290" stroke="var(--cyan)" stroke-width="3" />
-                <path d="M290 270L270 290" stroke="var(--cyan)" stroke-width="3" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="pc-builder-root"></div>
     </section>
 
 

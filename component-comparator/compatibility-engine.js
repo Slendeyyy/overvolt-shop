@@ -344,6 +344,26 @@ const CompatibilityEngine = (function () {
     };
   }
 
+  function evaluateCandidate(currentComponents, candidate) {
+    if (!candidate) return { overallStatus: "COMPATIBLE", rulesEvaluated: [] };
+    
+    let testSet = Array.isArray(currentComponents) ? [...currentComponents] : [];
+    
+    if (candidate.category !== "storage" && candidate.category !== "accessories") {
+      const idx = testSet.findIndex(c => c.category === candidate.category);
+      if (idx >= 0) {
+        testSet[idx] = candidate;
+      } else {
+        testSet.push(candidate);
+      }
+    } else {
+      testSet = testSet.filter(c => c.id !== candidate.id);
+      testSet.push(candidate);
+    }
+
+    return checkAllCompatibility(testSet);
+  }
+
   return {
     checkCpuMotherboard,
     checkMotherboardRam,
@@ -354,7 +374,8 @@ const CompatibilityEngine = (function () {
     checkCoolerCpu,
     checkCoolerCase,
     checkStorageMotherboard,
-    checkAllCompatibility
+    checkAllCompatibility,
+    evaluateCandidate
   };
 })();
 

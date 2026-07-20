@@ -1,0 +1,842 @@
+/* ============================================================
+   OVERVOLT — PC Builder (Step-by-Step Configurator) Stylesheet
+   ============================================================ */
+
+.ov-builder-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 24px 16px 120px 16px;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: var(--font-body, 'Barlow Semi Condensed', sans-serif);
+}
+
+/* Header Section */
+.ov-builder-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ov-builder-header .eyebrow {
+  color: var(--cyan, #00f0ff);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ov-builder-header h2 {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.ov-builder-header h2 span {
+  color: var(--cyan, #00f0ff);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+.ov-builder-header p {
+  color: var(--dim, #8f85b8);
+  font-size: 15px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Main Builder Layout (Sidebar + Content) */
+.ov-builder-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ============================================================
+   SIDEBAR (Categories Navigation)
+   ============================================================ */
+.ov-builder-sidebar {
+  background: rgba(18, 10, 46, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 90px;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+.ov-builder-sidebar-title {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim, #8f85b8);
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ov-builder-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ov-builder-step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(22, 12, 54, 0.5);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  position: relative;
+}
+
+.ov-builder-step-item:hover {
+  background: rgba(26, 15, 66, 0.9);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.ov-builder-step-item.is-active {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--cyan, #00f0ff);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.ov-builder-step-item.is-completed {
+  border-left: 3px solid var(--accent, #00ff66);
+}
+
+.ov-builder-step-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 7, 34, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--dim, #8f85b8);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.ov-builder-step-item.is-active .ov-builder-step-icon {
+  color: var(--cyan, #00f0ff);
+  border-color: var(--cyan, #00f0ff);
+  background: rgba(0, 240, 255, 0.15);
+}
+
+.ov-builder-step-item.is-completed .ov-builder-step-icon {
+  color: var(--accent, #00ff66);
+  border-color: var(--accent, #00ff66);
+}
+
+.ov-builder-step-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.ov-builder-step-name {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.ov-builder-step-selected-snippet {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  color: var(--accent, #00ff66);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.ov-builder-step-item:not(.is-completed) .ov-builder-step-selected-snippet {
+  color: var(--dim, #8f85b8);
+}
+
+.ov-builder-step-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 255, 102, 0.2);
+  border: 1px solid var(--accent, #00ff66);
+  color: var(--accent, #00ff66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   MAIN CONTENT AREA (Step Header + Brand Chips + Product Grid)
+   ============================================================ */
+.ov-builder-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Step Bar Header */
+.ov-builder-step-header {
+  background: rgba(18, 10, 46, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ov-builder-step-title-box h3 {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+
+.ov-builder-step-title-box p {
+  color: var(--dim, #8f85b8);
+  font-size: 13px;
+  margin: 4px 0 0 0;
+}
+
+/* Brand Filter Chips Bar */
+.ov-builder-brand-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ov-brand-chip {
+  background: rgba(26, 15, 66, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--dim, #8f85b8);
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+
+.ov-brand-chip:hover {
+  border-color: var(--cyan, #00f0ff);
+  color: #fff;
+}
+
+.ov-brand-chip.is-active {
+  background: var(--cyan, #00f0ff);
+  color: #0b0722;
+  border-color: var(--cyan, #00f0ff);
+  font-weight: 800;
+}
+
+/* Product Grid */
+.ov-builder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* ============================================================
+   REDUCED PRODUCT CARD COMPONENT FOR CONFIGURATOR
+   ============================================================ */
+.ov-builder-card {
+  background: rgba(22, 12, 54, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  box-sizing: border-box;
+}
+
+.ov-builder-card:hover {
+  border-color: var(--cyan, #00f0ff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.15);
+}
+
+/* Card Compatibility Status: COMPATIBLE */
+.ov-builder-card.is-compatible {
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+/* Card Compatibility Status: INCOMPATIBLE */
+.ov-builder-card.is-incompatible {
+  opacity: 0.38;
+  filter: grayscale(80%);
+  border-color: rgba(255, 0, 85, 0.3);
+  cursor: not-allowed;
+}
+
+.ov-builder-card.is-incompatible:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Card Compatibility Status: WARNING */
+.ov-builder-card.is-warning {
+  border-color: rgba(0, 255, 102, 0.4);
+}
+
+/* Card State: SELECTED */
+.ov-builder-card.is-selected {
+  border: 2px solid var(--cyan, #00f0ff);
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+/* Card Content Elements */
+.ov-builder-card-thumb {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 7, 34, 0.5);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.ov-builder-card-thumb img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.ov-builder-card:hover .ov-builder-card-thumb img {
+  transform: scale(1.05);
+}
+
+.ov-builder-card-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.ov-builder-card-badge.badge-compatible {
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid var(--cyan, #00f0ff);
+  color: var(--cyan, #00f0ff);
+}
+
+.ov-builder-card-badge.badge-incompatible {
+  background: rgba(255, 0, 85, 0.2);
+  border: 1px solid var(--secondary, #ff0055);
+  color: var(--secondary, #ff0055);
+}
+
+.ov-builder-card-badge.badge-warning {
+  background: rgba(0, 255, 102, 0.15);
+  border: 1px solid var(--accent, #00ff66);
+  color: var(--accent, #00ff66);
+}
+
+.ov-builder-card-name {
+  font-family: var(--font-body, 'Barlow Semi Condensed', sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 0 10px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 36px;
+}
+
+.ov-builder-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ov-builder-card-price {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--cyan, #00f0ff);
+}
+
+.ov-builder-card-btn {
+  background: transparent;
+  border: 1px solid var(--cyan, #00f0ff);
+  color: var(--cyan, #00f0ff);
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+}
+
+.ov-builder-card:hover .ov-builder-card-btn {
+  background: var(--cyan, #00f0ff);
+  color: #0b0722;
+}
+
+.ov-builder-card.is-selected .ov-builder-card-btn {
+  background: var(--accent, #00ff66);
+  border-color: var(--accent, #00ff66);
+  color: #0b0722;
+}
+
+/* Incompatibility Tooltip Banner on Card Hover/Click */
+.ov-builder-reason-banner {
+  background: rgba(255, 0, 85, 0.15);
+  border: 1px solid var(--secondary, #ff0055);
+  color: #ff99bb;
+  font-size: 11px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  padding: 8px 10px;
+  margin-top: 8px;
+  border-radius: 2px;
+  line-height: 1.3;
+}
+
+.ov-builder-reason-banner.banner-warning {
+  background: rgba(0, 255, 102, 0.15);
+  border-color: var(--accent, #00ff66);
+  color: #99ffcc;
+}
+
+/* ============================================================
+   STICKY BOTTOM BAR (Total, Wattage, Navigation Controls)
+   ============================================================ */
+.ov-builder-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(11, 7, 34, 0.95);
+  border-top: 2px solid var(--cyan, #00f0ff);
+  box-shadow: 0 -10px 30px rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 14px 24px;
+  box-sizing: border-box;
+}
+
+.ov-builder-bar-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ov-builder-bar-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ov-builder-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ov-builder-stat-label {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim, #8f85b8);
+}
+
+.ov-builder-stat-value {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--cyan, #00f0ff);
+  line-height: 1.1;
+}
+
+.ov-builder-stat-value.value-wattage {
+  color: var(--accent, #00ff66);
+  font-size: 16px;
+}
+
+.ov-builder-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ov-btn-cyber {
+  background: transparent;
+  border: 1px solid var(--cyan, #00f0ff);
+  color: #fff;
+  padding: 2px;
+  cursor: pointer;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.ov-btn-cyber span {
+  display: block;
+  background: var(--cyan, #00f0ff);
+  color: #0b0722;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+}
+
+.ov-btn-cyber:hover span {
+  background: #fff;
+  color: #0b0722;
+}
+
+.ov-btn-cyber.btn-secondary {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ov-btn-cyber.btn-secondary span {
+  background: transparent;
+  color: var(--dim, #8f85b8);
+}
+
+.ov-btn-cyber.btn-secondary:hover span {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ov-btn-cyber.btn-accent span {
+  background: var(--accent, #00ff66);
+  color: #0b0722;
+}
+
+.ov-btn-cyber.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SUMMARY VIEW (Resumen Final del Armado)
+   ============================================================ */
+.ov-builder-summary {
+  background: rgba(18, 10, 46, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+.ov-builder-summary-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ov-builder-summary-header h3 {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+
+.ov-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.ov-summary-table th,
+.ov-summary-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ov-summary-table th {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim, #8f85b8);
+  background: rgba(11, 7, 34, 0.4);
+}
+
+.ov-summary-table td {
+  font-size: 14px;
+}
+
+.ov-summary-item-category {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 700;
+  color: var(--cyan, #00f0ff);
+}
+
+.ov-summary-item-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.ov-summary-item-name img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.ov-summary-item-price {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 700;
+  color: #fff;
+}
+
+.ov-summary-edit-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--cyan, #00f0ff);
+  font-size: 11px;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 700;
+}
+
+.ov-summary-edit-btn:hover {
+  background: var(--cyan, #00f0ff);
+  color: #0b0722;
+}
+
+/* Global Compatibility Technical Report Box */
+.ov-summary-report-box {
+  background: rgba(11, 7, 34, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.ov-summary-report-box h4 {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  color: var(--cyan, #00f0ff);
+}
+
+.ov-summary-rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ov-rule-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  background: rgba(22, 12, 54, 0.5);
+  padding: 10px 12px;
+  border-radius: 3px;
+}
+
+.ov-rule-card.rule-compatible {
+  border-left: 3px solid var(--cyan, #00f0ff);
+}
+
+.ov-rule-card.rule-incompatible {
+  border-left: 3px solid var(--secondary, #ff0055);
+}
+
+.ov-rule-card.rule-warning {
+  border-left: 3px solid var(--accent, #00ff66);
+}
+
+/* Summary Footer & Cart Action */
+.ov-summary-total-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ov-summary-total-label {
+  font-family: var(--font-display, 'Rajdhani', sans-serif);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim, #8f85b8);
+}
+
+.ov-summary-total-price {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--cyan, #00f0ff);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Mobile & Tablet Adjustments)
+   ============================================================ */
+@media (max-width: 992px) {
+  .ov-builder-layout {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ov-builder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Transform Sidebar into horizontal scrollable strip */
+  .ov-builder-sidebar {
+    position: relative;
+    top: 0;
+    clip-path: none;
+    padding: 8px;
+  }
+
+  .ov-builder-steps-list {
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 4px;
+  }
+
+  .ov-builder-step-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 12px;
+    min-width: 80px;
+  }
+
+  .ov-builder-step-info {
+    align-items: center;
+  }
+
+  .ov-builder-step-name {
+    font-size: 12px;
+  }
+
+  .ov-builder-step-selected-snippet {
+    display: none; /* Hide product snippet on small mobile to avoid overflow */
+  }
+
+  .ov-builder-step-item.is-active .ov-builder-step-selected-snippet {
+    display: block; /* Show snippet only for active step */
+  }
+
+  .ov-builder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ov-builder-bottom-bar {
+    padding: 10px 14px;
+  }
+
+  .ov-builder-bar-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ov-builder-bar-stats {
+    justify-content: space-between;
+  }
+
+  .ov-builder-bar-actions {
+    justify-content: space-between;
+  }
+
+  .ov-btn-cyber span {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .ov-builder-card,
+  .ov-builder-step-item,
+  .ov-btn-cyber span {
+    transition: none !important;
+  }
+}
