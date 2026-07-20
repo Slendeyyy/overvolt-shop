@@ -1615,12 +1615,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   background: radial-gradient(circle, rgba(255, 46, 126, 0.1) 0%, transparent 70%);
 }
 
-/* --- Armá tu PC (Mejorado) --- */
+/* --- Armá tu PC (Configurador Paso a Paso) --- */
 .build-pc-section {
-  clip-path: polygon(0 0, 100% 3.5vw, 100% 100%, 0 calc(100% - 3.5vw));
-  margin-top: -3.5vw;
-  padding-top: calc(var(--space-2xl) + 3.5vw);
-  padding-bottom: calc(var(--space-2xl) + 3.5vw);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
   position: relative;
   z-index: 2;
   background: var(--bg-alt);

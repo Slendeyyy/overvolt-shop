@@ -693,36 +693,8 @@
       // Register keydown handler immediately
       window.addEventListener("keydown", globalKeydownHandler);
 
-      // Catch any click on buttons/links for building a PC immediately
-      document.addEventListener("click", (e) => {
-        const target = e.target.closest("a");
-        if (!target) return;
-
-        const href = target.getAttribute("href") || "";
-        const text = target.innerText.trim().toLowerCase();
-
-        if (
-          href === "#build-pc" ||
-          href === "index.html#build-pc" ||
-          text.includes("armá tu pc") ||
-          text.includes("armar pc") ||
-          text.includes("empezar a armar") ||
-          text.includes("empezar a construir")
-        ) {
-          e.preventDefault();
-          ComponentComparator.open();
-        }
-      });
-
       // Event delegation for checkbox changes registered immediately
       document.addEventListener("change", (e) => {
-        // Direct binding for #build-pc links
-        document.querySelectorAll('a[href="#build-pc"]').forEach(link => {
-          link.addEventListener('click', e => {
-            e.preventDefault();
-            ComponentComparator.open();
-          });
-        });
         if (e.target.classList.contains("cc-compare-checkbox-input")) {
           const id = e.target.dataset.id;
           if (e.target.checked) {
