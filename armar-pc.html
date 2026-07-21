@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armá tu PC — OVERVOLT</title>
+  <meta name="description" content="Configurador de PC gamer paso a paso con verificación de compatibilidad de hardware en tiempo real." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pc-builder.css" />
+
+  <!-- Isolated Scripts (Engine + Controller only) -->
+  <script src="component-comparator/compatibility-engine.js" defer></script>
+  <script src="js/pc-builder.js" defer></script>
+</head>
+<body class="ov-builder-page">
+
+  <!-- Isolated Top Navigation Bar -->
+  <header class="ov-builder-nav">
+    <div class="ov-builder-nav-container">
+      <a href="index.html" class="ov-builder-brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="bolt-fill" d="M13 2L4 14H12L11 22L20 10H12L13 2Z"/></svg>
+        <span>OVER<span class="o">VOLT</span></span>
+      </a>
+
+      <a href="index.html" class="ov-builder-exit-link">
+        ← Volver a la tienda
+      </a>
+    </div>
+  </header>
+
+  <!-- Configurator Root Mount Point -->
+  <main class="ov-builder-wrapper">
+    <div id="pc-builder-root"></div>
+  </main>
+
+</body>
+</html>
